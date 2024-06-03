@@ -10,8 +10,19 @@ An OpenAPI JSON Spec Parser for dart, from: https://swagger.io/specification/
 
 According to `/example/openapi_dart_example.dart`
 
+- From JSON String
 ```dart
-String jsonPath = "$currentWorkingDirectory/example/json/$jsonFileName";
-OpenAPILoader openAPILoader = OpenAPILoader();
-OpenAPI openAPI = await openAPILoader.load(jsonPath);
+Future<void> main() async {
+  String jsonString = "{...OpenAPI String...}";
+  OpenAPILoader openAPILoader = OpenAPILoader();
+  OpenAPI openAPI = await openAPILoader.load(jsonString);
+}
+```
+- From JSON File
+```dart
+Future<void> main() async {
+  String jsonPath = "$currentWorkingDirectory/example/json/$jsonFileName";
+  OpenAPILoader openAPILoader = OpenAPILoader();
+  OpenAPI openAPI = await openAPILoader.loadFromFile(jsonPath);
+}
 ```

@@ -17,7 +17,7 @@ void main() async {
     print("FILE_NAME: $jsonFileName");
     String jsonPath = "$currentWorkingDirectory/example/json/$jsonFileName";
     OpenAPILoader openAPILoader = OpenAPILoader();
-    OpenAPI openAPI = await openAPILoader.load(jsonPath);
+    OpenAPI openAPI = await openAPILoader.loadFromFile(jsonPath);
     print("title: ${openAPI.info.title}");
   });
 }
