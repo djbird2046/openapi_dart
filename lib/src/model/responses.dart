@@ -11,8 +11,6 @@ class Responses {
 
   Responses({this.default_, this.httpStatusCode});
 
-  // factory Responses.fromJson(Map<String, dynamic> json) => _$ResponsesFromJson(json);
-
   factory Responses.fromJson(Map<String, dynamic> json) {
     Response? default_ = json['default'] == null ? null : Response.fromJson(json['default'] as Map<String, dynamic>);
     Iterable<MapEntry<String, Response>> mapEntries = json.entries.where((element) => element.key != "default").map((e) => MapEntry(e.key, Response.fromJson(e.value as Map<String, dynamic>)));
