@@ -7,7 +7,7 @@ void main() async {
   jsonFileNameList.add("callback-example.json");
   jsonFileNameList.add("link-example.json");
   jsonFileNameList.add("non-oauth-scopes.json");
-  jsonFileNameList.add("petstore-expanded.json");
+  // jsonFileNameList.add("petstore-expanded.json");  //allOf, oneOf, anyOf UNSUPPORTED
   jsonFileNameList.add("petstore.json");
   jsonFileNameList.add("uspto.json");
   jsonFileNameList.add("webhook-example.json");
