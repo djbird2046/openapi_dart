@@ -19,18 +19,12 @@ Schema _$SchemaFromJson(Map<String, dynamic> json) => Schema(
       required: (json['required'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      default_: json['default'] as String?,
+      default_: json['default'],
       minimum: json['minimum'] as num?,
       maximum: json['maximum'] as num?,
       minLength: json['minLength'] as num?,
       maxLength: json['maxLength'] as num?,
       pattern: json['pattern'] as String?,
-      example: json['example'] == null
-          ? null
-          : Example.fromJson(json['example'] as Map<String, dynamic>),
-      examples: (json['examples'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, Example.fromJson(e as Map<String, dynamic>)),
-      ),
       readOnly: json['readOnly'] as bool?,
       writeOnly: json['writeOnly'] as bool?,
       nullable: json['nullable'] as bool?,
@@ -45,8 +39,12 @@ Schema _$SchemaFromJson(Map<String, dynamic> json) => Schema(
           ? null
           : ExternalDocumentation.fromJson(
               json['externalDocs'] as Map<String, dynamic>),
-    )..enum_ =
-        (json['enum'] as List<dynamic>?)?.map((e) => e as String).toList();
+    )
+      ..enum_ =
+          (json['enum'] as List<dynamic>?)?.map((e) => e as String).toList()
+      ..examples = (json['examples'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, Example.fromJson(e as Map<String, dynamic>)),
+      );
 
 Map<String, dynamic> _$SchemaToJson(Schema instance) => <String, dynamic>{
       'type': instance.type,
@@ -62,7 +60,6 @@ Map<String, dynamic> _$SchemaToJson(Schema instance) => <String, dynamic>{
       'minLength': instance.minLength,
       'maxLength': instance.maxLength,
       'pattern': instance.pattern,
-      'example': instance.example,
       'examples': instance.examples,
       'readOnly': instance.readOnly,
       'writeOnly': instance.writeOnly,
