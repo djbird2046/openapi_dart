@@ -1,6 +1,6 @@
 name: openapi_dart
 description: An OpenAPI JSON Spec Parser, fromJson and toJson
-version: 0.1.2
+version: 0.1.3
 repository: https://github.com/djbird2046/openapi_dart
 
 environment:
