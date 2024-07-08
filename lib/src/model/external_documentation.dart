@@ -9,7 +9,8 @@ class ExternalDocumentation {
 
   ExternalDocumentation({this.description, required this.url});
 
-  factory ExternalDocumentation.fromJson(Map<String, dynamic> json) => _$ExternalDocumentationFromJson(json);
+  factory ExternalDocumentation.fromJson(Map<String, dynamic> json) =>
+      _$ExternalDocumentationFromJson(json);
 
   Map<String, dynamic> toJson() => _$ExternalDocumentationToJson(this);
 }

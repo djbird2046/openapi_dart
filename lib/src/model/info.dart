@@ -13,7 +13,13 @@ class Info {
   License? license;
   late String version;
 
-  Info({required this.title, this.description, this.termsOfService, this.contact, this.license, required this.version});
+  Info(
+      {required this.title,
+      this.description,
+      this.termsOfService,
+      this.contact,
+      this.license,
+      required this.version});
 
   factory Info.fromJson(Map<String, dynamic> json) => _$InfoFromJson(json);
 

@@ -8,7 +8,8 @@ class SecurityRequirement {
 
   SecurityRequirement({this.name});
 
-  factory SecurityRequirement.fromJson(Map<String, dynamic> json) => _$SecurityRequirementFromJson(json);
+  factory SecurityRequirement.fromJson(Map<String, dynamic> json) =>
+      _$SecurityRequirementFromJson(json);
 
   Map<String, dynamic> toJson() => _$SecurityRequirementToJson(this);
 }

@@ -12,11 +12,15 @@ class Link {
   String? requestBody;
   Server? server;
 
-  Link({this.operationRef, this.operationId, this.parameters, this.requestBody, this.server});
+  Link(
+      {this.operationRef,
+      this.operationId,
+      this.parameters,
+      this.requestBody,
+      this.server});
 
   factory Link.fromJson(Map<String, dynamic> json) {
-    if(json["\$ref"] != null) {
-
+    if (json["\$ref"] != null) {
       return _fromRef(json["\$ref"] as String);
     }
     return _$LinkFromJson(json);
@@ -26,10 +30,10 @@ class Link {
 
   static Link _fromRef(String ref) {
     List<String> parts = ref.split("/");
-    if(parts[0]=="#"&&parts[1]=="components"&&parts[2]=="links") {
+    if (parts[0] == "#" && parts[1] == "components" && parts[2] == "links") {
       String refName = parts[3];
       Link? link = ComponentsSingleton.getInstance().links?[refName];
-      if(link != null) {
+      if (link != null) {
         return link;
       } else {
         throw FormatException("\$ref not found: $ref");

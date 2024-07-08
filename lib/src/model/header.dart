@@ -18,8 +18,16 @@ class Header {
   dynamic example;
   Map<String, Example>? examples;
 
-
-  Header({this.description, required this.required, this.deprecated = false, this.allowEmptyValue, this.style, this.explode = false, this.allowReserved = false, this.example, this.examples});
+  Header(
+      {this.description,
+      required this.required,
+      this.deprecated = false,
+      this.allowEmptyValue,
+      this.style,
+      this.explode = false,
+      this.allowReserved = false,
+      this.example,
+      this.examples});
 
   factory Header.fromJson(Map<String, dynamic> json) => _$HeaderFromJson(json);
 

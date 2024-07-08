@@ -12,7 +12,8 @@ class Encoding {
 
   Encoding({this.contentType, this.headers, this.explode, this.allowReserved});
 
-  factory Encoding.fromJson(Map<String, dynamic> json) => _$EncodingFromJson(json);
+  factory Encoding.fromJson(Map<String, dynamic> json) =>
+      _$EncodingFromJson(json);
 
   Map<String, dynamic> toJson() => _$EncodingToJson(this);
 }

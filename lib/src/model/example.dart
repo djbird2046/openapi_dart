@@ -13,7 +13,7 @@ class Example {
   Example({this.summary, this.description, this.value, this.externalValue});
 
   factory Example.fromJson(Map<String, dynamic> json) {
-    if(json["\$ref"] != null) {
+    if (json["\$ref"] != null) {
       return _fromRef(json["\$ref"] as String);
     }
     return _$ExampleFromJson(json);
@@ -23,10 +23,10 @@ class Example {
 
   static Example _fromRef(String ref) {
     List<String> parts = ref.split("/");
-    if(parts[0]=="#"&&parts[1]=="components"&&parts[2]=="examples") {
+    if (parts[0] == "#" && parts[1] == "components" && parts[2] == "examples") {
       String refName = parts[3];
       Example? example = ComponentsSingleton.getInstance().examples?[refName];
-      if(example != null) {
+      if (example != null) {
         return example;
       } else {
         throw FormatException("#ref not found: $ref");

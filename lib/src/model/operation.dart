@@ -24,9 +24,22 @@ class Operation {
   List<SecurityRequirement>? security;
   List<Server>? servers;
 
-  Operation({this.tags, this.summary, this.description, this.externalDocs, this.operationId, this.parameters, this.requestBody, this.responses, this.callbacks, this.deprecated = false, this.security, this.servers});
+  Operation(
+      {this.tags,
+      this.summary,
+      this.description,
+      this.externalDocs,
+      this.operationId,
+      this.parameters,
+      this.requestBody,
+      this.responses,
+      this.callbacks,
+      this.deprecated = false,
+      this.security,
+      this.servers});
 
-  factory Operation.fromJson(Map<String, dynamic> json) => _$OperationFromJson(json);
+  factory Operation.fromJson(Map<String, dynamic> json) =>
+      _$OperationFromJson(json);
 
   Map<String, dynamic> toJson() => _$OperationToJson(this);
 }

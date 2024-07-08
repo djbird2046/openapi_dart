@@ -6,7 +6,8 @@ class Paths {
   Paths({this.paths});
 
   factory Paths.fromJson(Map<String, dynamic> json) {
-    Map<String, PathItem> paths = json.map((key, value) => MapEntry(key, PathItem.fromJson(value as Map<String, dynamic>)));
+    Map<String, PathItem> paths = json.map((key, value) =>
+        MapEntry(key, PathItem.fromJson(value as Map<String, dynamic>)));
     return Paths(paths: paths);
   }
 

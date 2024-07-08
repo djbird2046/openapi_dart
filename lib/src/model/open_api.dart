@@ -24,9 +24,20 @@ class OpenAPI {
   List<Tag>? tags;
   ExternalDocumentation? externalDocs;
 
-  OpenAPI({required this.openapi, required this.info, this.jsonSchemaDialect, this.servers, this.paths, this.webhooks, this.components, this.security, this.tags, this.externalDocs});
+  OpenAPI(
+      {required this.openapi,
+      required this.info,
+      this.jsonSchemaDialect,
+      this.servers,
+      this.paths,
+      this.webhooks,
+      this.components,
+      this.security,
+      this.tags,
+      this.externalDocs});
 
-  factory OpenAPI.fromJson(Map<String, dynamic> json) => _$OpenAPIFromJson(json);
+  factory OpenAPI.fromJson(Map<String, dynamic> json) =>
+      _$OpenAPIFromJson(json);
 
   Map<String, dynamic> toJson() => _$OpenAPIToJson(this);
 }

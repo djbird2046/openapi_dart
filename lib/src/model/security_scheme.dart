@@ -17,9 +17,18 @@ class SecurityScheme {
   OAuthFlows? flows;
   String? openIdConnectUrl;
 
-  SecurityScheme({required this.type, this.description, required this.name, required this.in_, required this.scheme, this.bearerFormat, this.flows, this.openIdConnectUrl});
+  SecurityScheme(
+      {required this.type,
+      this.description,
+      required this.name,
+      required this.in_,
+      required this.scheme,
+      this.bearerFormat,
+      this.flows,
+      this.openIdConnectUrl});
 
-  factory SecurityScheme.fromJson(Map<String, dynamic> json) => _$SecuritySchemeFromJson(json);
+  factory SecurityScheme.fromJson(Map<String, dynamic> json) =>
+      _$SecuritySchemeFromJson(json);
 
   Map<String, dynamic> toJson() => _$SecuritySchemeToJson(this);
 }

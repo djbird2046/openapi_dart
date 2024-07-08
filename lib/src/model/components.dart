@@ -25,15 +25,25 @@ class Components {
   Map<String, Callback>? callbacks;
   Map<String, PathItem>? pathItems;
 
-  Components({this.schemas, this.responses, this.parameters, this.examples, this.requestBodies, this.headers, this.securitySchemes, this.links, this.callbacks, this.pathItems});
+  Components(
+      {this.schemas,
+      this.responses,
+      this.parameters,
+      this.examples,
+      this.requestBodies,
+      this.headers,
+      this.securitySchemes,
+      this.links,
+      this.callbacks,
+      this.pathItems});
 
-  factory Components.fromJson(Map<String, dynamic> json) => _$ComponentsFromJson(json);
+  factory Components.fromJson(Map<String, dynamic> json) =>
+      _$ComponentsFromJson(json);
 
   Map<String, dynamic> toJson() => _$ComponentsToJson(this);
-
 }
 
-class  ComponentsSingleton {
+class ComponentsSingleton {
   static Components? _components;
 
   static initInstance(Map<String, dynamic> componentJson) {
@@ -42,4 +52,3 @@ class  ComponentsSingleton {
 
   static Components getInstance() => _components!;
 }
-

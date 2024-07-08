@@ -21,9 +21,23 @@ class PathItem {
   List<Server>? servers;
   List<Parameter>? parameters;
 
-  PathItem({this.$ref, this.summary, this.description, this.get, this.put, this.post, this.delete, this.options, this.head, this.patch, this.trace, this.servers, this.parameters});
+  PathItem(
+      {this.$ref,
+      this.summary,
+      this.description,
+      this.get,
+      this.put,
+      this.post,
+      this.delete,
+      this.options,
+      this.head,
+      this.patch,
+      this.trace,
+      this.servers,
+      this.parameters});
 
-  factory PathItem.fromJson(Map<String, dynamic> json) => _$PathItemFromJson(json);
+  factory PathItem.fromJson(Map<String, dynamic> json) =>
+      _$PathItemFromJson(json);
 
   Map<String, dynamic> toJson() => _$PathItemToJson(this);
 }

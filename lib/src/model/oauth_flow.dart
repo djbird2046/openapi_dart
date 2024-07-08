@@ -9,9 +9,14 @@ class OAuthFlow {
   String? refreshUrl;
   late Map<String, String> scopes;
 
-  OAuthFlow({required this.authorizationUrl, required this.tokenUrl, this.refreshUrl, required this.scopes});
+  OAuthFlow(
+      {required this.authorizationUrl,
+      required this.tokenUrl,
+      this.refreshUrl,
+      required this.scopes});
 
-  factory OAuthFlow.fromJson(Map<String, dynamic> json) => _$OAuthFlowFromJson(json);
+  factory OAuthFlow.fromJson(Map<String, dynamic> json) =>
+      _$OAuthFlowFromJson(json);
 
   Map<String, dynamic> toJson() => _$OAuthFlowToJson(this);
 }

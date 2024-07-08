@@ -14,7 +14,8 @@ class MediaType {
 
   MediaType({this.schema, this.example, this.examples, this.encoding});
 
-  factory MediaType.fromJson(Map<String, dynamic> json) => _$MediaTypeFromJson(json);
+  factory MediaType.fromJson(Map<String, dynamic> json) =>
+      _$MediaTypeFromJson(json);
 
   Map<String, dynamic> toJson() => _$MediaTypeToJson(this);
 }

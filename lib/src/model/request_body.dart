@@ -11,7 +11,8 @@ class RequestBody {
 
   RequestBody({this.description, required this.content, this.required = false});
 
-  factory RequestBody.fromJson(Map<String, dynamic> json) => _$RequestBodyFromJson(json);
+  factory RequestBody.fromJson(Map<String, dynamic> json) =>
+      _$RequestBodyFromJson(json);
 
   Map<String, dynamic> toJson() => _$RequestBodyToJson(this);
 }

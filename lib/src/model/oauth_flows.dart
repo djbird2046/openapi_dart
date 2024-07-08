@@ -10,9 +10,14 @@ class OAuthFlows {
   OAuthFlow? clientCredentials;
   OAuthFlow? authorizationCode;
 
-  OAuthFlows({this.implicit, this.password, this.clientCredentials, this.authorizationCode});
+  OAuthFlows(
+      {this.implicit,
+      this.password,
+      this.clientCredentials,
+      this.authorizationCode});
 
-  factory OAuthFlows.fromJson(Map<String, dynamic> json) => _$OAuthFlowsFromJson(json);
+  factory OAuthFlows.fromJson(Map<String, dynamic> json) =>
+      _$OAuthFlowsFromJson(json);
 
   Map<String, dynamic> toJson() => _$OAuthFlowsToJson(this);
 }

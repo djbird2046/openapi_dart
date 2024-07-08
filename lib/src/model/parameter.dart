@@ -24,9 +24,22 @@ class Parameter {
   dynamic example;
   Map<String, Example>? examples;
 
-  Parameter({required this.name, required this.in_, this.description, required this.required, this.deprecated = false, this.allowEmptyValue, this.style, this.explode = false, this.allowReserved = false, this.schema, this.example, this.examples});
+  Parameter(
+      {required this.name,
+      required this.in_,
+      this.description,
+      required this.required,
+      this.deprecated = false,
+      this.allowEmptyValue,
+      this.style,
+      this.explode = false,
+      this.allowReserved = false,
+      this.schema,
+      this.example,
+      this.examples});
 
-  factory Parameter.fromJson(Map<String, dynamic> json) => _$ParameterFromJson(json);
+  factory Parameter.fromJson(Map<String, dynamic> json) =>
+      _$ParameterFromJson(json);
 
   Map<String, dynamic> toJson() => _$ParameterToJson(this);
 }

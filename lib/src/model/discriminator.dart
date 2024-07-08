@@ -9,7 +9,8 @@ class Discriminator {
 
   Discriminator({required this.propertyName, this.mapping});
 
-  factory Discriminator.fromJson(Map<String, dynamic> json) => _$DiscriminatorFromJson(json);
+  factory Discriminator.fromJson(Map<String, dynamic> json) =>
+      _$DiscriminatorFromJson(json);
 
   Map<String, dynamic> toJson() => _$DiscriminatorToJson(this);
 }

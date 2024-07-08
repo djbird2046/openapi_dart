@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'server.g.dart';
 
 @JsonSerializable()
-class Server{
+class Server {
   late String url;
   String? description;
   Map<String, ServerVariable>? variables;

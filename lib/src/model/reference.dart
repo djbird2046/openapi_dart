@@ -10,7 +10,8 @@ class Reference {
 
   Reference({required this.$ref, this.summary, this.description});
 
-  factory Reference.fromJson(Map<String, dynamic> json) => _$ReferenceFromJson(json);
+  factory Reference.fromJson(Map<String, dynamic> json) =>
+      _$ReferenceFromJson(json);
 
   Map<String, dynamic> toJson() => _$ReferenceToJson(this);
 }
