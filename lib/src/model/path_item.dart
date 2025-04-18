@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'path_item.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class PathItem {
   String? $ref;
   String? summary;

@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'responses.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(createFactory: false, explicitToJson: true, includeIfNull: false)
 class Responses {
   @JsonKey(name: "default")
   Response? default_;

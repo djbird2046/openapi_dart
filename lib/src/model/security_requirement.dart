@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'security_requirement.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false)
 class SecurityRequirement {
   Map<String, List<String>>? name;
 

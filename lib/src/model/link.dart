@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'link.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class Link {
   String? operationRef;
   String? operationId;

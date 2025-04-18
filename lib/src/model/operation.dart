@@ -9,7 +9,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'operation.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class Operation {
   List<String>? tags;
   String? summary;

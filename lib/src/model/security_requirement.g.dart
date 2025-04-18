@@ -14,8 +14,15 @@ SecurityRequirement _$SecurityRequirementFromJson(Map<String, dynamic> json) =>
       ),
     );
 
-Map<String, dynamic> _$SecurityRequirementToJson(
-        SecurityRequirement instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-    };
+Map<String, dynamic> _$SecurityRequirementToJson(SecurityRequirement instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('name', instance.name);
+  return val;
+}

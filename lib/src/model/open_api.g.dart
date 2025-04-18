@@ -35,15 +35,26 @@ OpenAPI _$OpenAPIFromJson(Map<String, dynamic> json) => OpenAPI(
               json['externalDocs'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$OpenAPIToJson(OpenAPI instance) => <String, dynamic>{
-      'openapi': instance.openapi,
-      'info': instance.info,
-      'jsonSchemaDialect': instance.jsonSchemaDialect,
-      'servers': instance.servers,
-      'paths': instance.paths,
-      'webhooks': instance.webhooks,
-      'components': instance.components,
-      'security': instance.security,
-      'tags': instance.tags,
-      'externalDocs': instance.externalDocs,
-    };
+Map<String, dynamic> _$OpenAPIToJson(OpenAPI instance) {
+  final val = <String, dynamic>{
+    'openapi': instance.openapi,
+    'info': instance.info.toJson(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('jsonSchemaDialect', instance.jsonSchemaDialect);
+  writeNotNull('servers', instance.servers?.map((e) => e.toJson()).toList());
+  writeNotNull('paths', instance.paths?.toJson());
+  writeNotNull(
+      'webhooks', instance.webhooks?.map((k, e) => MapEntry(k, e.toJson())));
+  writeNotNull('components', instance.components?.toJson());
+  writeNotNull('security', instance.security?.toJson());
+  writeNotNull('tags', instance.tags?.map((e) => e.toJson()).toList());
+  writeNotNull('externalDocs', instance.externalDocs?.toJson());
+  return val;
+}

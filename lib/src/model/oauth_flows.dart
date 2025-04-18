@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'oauth_flows.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class OAuthFlows {
   OAuthFlow? implicit;
   OAuthFlow? password;

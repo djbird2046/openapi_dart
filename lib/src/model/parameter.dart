@@ -5,7 +5,7 @@ import 'schema.dart';
 
 part 'parameter.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class Parameter {
   late String name;
 

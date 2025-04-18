@@ -14,10 +14,19 @@ XML _$XMLFromJson(Map<String, dynamic> json) => XML(
       wrapped: json['wrapped'] as bool?,
     );
 
-Map<String, dynamic> _$XMLToJson(XML instance) => <String, dynamic>{
-      'name': instance.name,
-      'namespace': instance.namespace,
-      'prefix': instance.prefix,
-      'attribute': instance.attribute,
-      'wrapped': instance.wrapped,
-    };
+Map<String, dynamic> _$XMLToJson(XML instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('name', instance.name);
+  writeNotNull('namespace', instance.namespace);
+  writeNotNull('prefix', instance.prefix);
+  writeNotNull('attribute', instance.attribute);
+  writeNotNull('wrapped', instance.wrapped);
+  return val;
+}

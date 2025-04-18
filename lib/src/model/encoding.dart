@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'encoding.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class Encoding {
   String? contentType;
   Map<String, Header>? headers;

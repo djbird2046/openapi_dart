@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'response.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class Response {
   late String description;
   Map<String, Header>? headers;
@@ -14,8 +14,7 @@ class Response {
 
   Response({required this.description, this.headers, this.content, this.links});
 
-  factory Response.fromJson(Map<String, dynamic> json) =>
-      _$ResponseFromJson(json);
+  factory Response.fromJson(Map<String, dynamic> json) => _$ResponseFromJson(json);
 
   Map<String, dynamic> toJson() => _$ResponseToJson(this);
 }

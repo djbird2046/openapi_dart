@@ -36,17 +36,28 @@ Operation _$OperationFromJson(Map<String, dynamic> json) => Operation(
           .toList(),
     );
 
-Map<String, dynamic> _$OperationToJson(Operation instance) => <String, dynamic>{
-      'tags': instance.tags,
-      'summary': instance.summary,
-      'description': instance.description,
-      'externalDocs': instance.externalDocs,
-      'operationId': instance.operationId,
-      'parameters': instance.parameters,
-      'requestBody': instance.requestBody,
-      'responses': instance.responses,
-      'callbacks': instance.callbacks,
-      'deprecated': instance.deprecated,
-      'security': instance.security,
-      'servers': instance.servers,
-    };
+Map<String, dynamic> _$OperationToJson(Operation instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('tags', instance.tags);
+  writeNotNull('summary', instance.summary);
+  writeNotNull('description', instance.description);
+  writeNotNull('externalDocs', instance.externalDocs?.toJson());
+  writeNotNull('operationId', instance.operationId);
+  writeNotNull(
+      'parameters', instance.parameters?.map((e) => e.toJson()).toList());
+  writeNotNull('requestBody', instance.requestBody?.toJson());
+  writeNotNull('responses', instance.responses?.toJson());
+  writeNotNull(
+      'callbacks', instance.callbacks?.map((k, e) => MapEntry(k, e.toJson())));
+  val['deprecated'] = instance.deprecated;
+  writeNotNull('security', instance.security?.map((e) => e.toJson()).toList());
+  writeNotNull('servers', instance.servers?.map((e) => e.toJson()).toList());
+  return val;
+}

@@ -13,9 +13,19 @@ OAuthFlow _$OAuthFlowFromJson(Map<String, dynamic> json) => OAuthFlow(
       scopes: Map<String, String>.from(json['scopes'] as Map),
     );
 
-Map<String, dynamic> _$OAuthFlowToJson(OAuthFlow instance) => <String, dynamic>{
-      'authorizationUrl': instance.authorizationUrl,
-      'tokenUrl': instance.tokenUrl,
-      'refreshUrl': instance.refreshUrl,
-      'scopes': instance.scopes,
-    };
+Map<String, dynamic> _$OAuthFlowToJson(OAuthFlow instance) {
+  final val = <String, dynamic>{
+    'authorizationUrl': instance.authorizationUrl,
+    'tokenUrl': instance.tokenUrl,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('refreshUrl', instance.refreshUrl);
+  val['scopes'] = instance.scopes;
+  return val;
+}

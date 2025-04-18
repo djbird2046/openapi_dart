@@ -11,7 +11,7 @@ import 'tag.dart';
 
 part 'open_api.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class OpenAPI {
   late String openapi;
   late Info info;

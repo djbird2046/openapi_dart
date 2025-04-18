@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'discriminator.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false)
 class Discriminator {
   late String propertyName;
   Map<String, String>? mapping;

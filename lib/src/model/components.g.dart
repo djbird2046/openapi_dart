@@ -40,16 +40,33 @@ Components _$ComponentsFromJson(Map<String, dynamic> json) => Components(
       ),
     );
 
-Map<String, dynamic> _$ComponentsToJson(Components instance) =>
-    <String, dynamic>{
-      'schemas': instance.schemas,
-      'responses': instance.responses,
-      'parameters': instance.parameters,
-      'examples': instance.examples,
-      'requestBodies': instance.requestBodies,
-      'headers': instance.headers,
-      'securitySchemes': instance.securitySchemes,
-      'links': instance.links,
-      'callbacks': instance.callbacks,
-      'pathItems': instance.pathItems,
-    };
+Map<String, dynamic> _$ComponentsToJson(Components instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(
+      'schemas', instance.schemas?.map((k, e) => MapEntry(k, e.toJson())));
+  writeNotNull(
+      'responses', instance.responses?.map((k, e) => MapEntry(k, e.toJson())));
+  writeNotNull('parameters',
+      instance.parameters?.map((k, e) => MapEntry(k, e.toJson())));
+  writeNotNull(
+      'examples', instance.examples?.map((k, e) => MapEntry(k, e.toJson())));
+  writeNotNull('requestBodies',
+      instance.requestBodies?.map((k, e) => MapEntry(k, e.toJson())));
+  writeNotNull(
+      'headers', instance.headers?.map((k, e) => MapEntry(k, e.toJson())));
+  writeNotNull('securitySchemes',
+      instance.securitySchemes?.map((k, e) => MapEntry(k, e.toJson())));
+  writeNotNull('links', instance.links?.map((k, e) => MapEntry(k, e.toJson())));
+  writeNotNull(
+      'callbacks', instance.callbacks?.map((k, e) => MapEntry(k, e.toJson())));
+  writeNotNull(
+      'pathItems', instance.pathItems?.map((k, e) => MapEntry(k, e.toJson())));
+  return val;
+}

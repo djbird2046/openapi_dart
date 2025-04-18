@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'media_type.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class MediaType {
   Schema? schema;
   dynamic example;

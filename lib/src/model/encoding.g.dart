@@ -15,9 +15,19 @@ Encoding _$EncodingFromJson(Map<String, dynamic> json) => Encoding(
       allowReserved: json['allowReserved'] as bool?,
     );
 
-Map<String, dynamic> _$EncodingToJson(Encoding instance) => <String, dynamic>{
-      'contentType': instance.contentType,
-      'headers': instance.headers,
-      'explode': instance.explode,
-      'allowReserved': instance.allowReserved,
-    };
+Map<String, dynamic> _$EncodingToJson(Encoding instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('contentType', instance.contentType);
+  writeNotNull(
+      'headers', instance.headers?.map((k, e) => MapEntry(k, e.toJson())));
+  writeNotNull('explode', instance.explode);
+  writeNotNull('allowReserved', instance.allowReserved);
+  return val;
+}

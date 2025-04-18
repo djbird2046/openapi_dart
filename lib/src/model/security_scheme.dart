@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'security_scheme.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class SecurityScheme {
   late String type;
   String? description;

@@ -22,15 +22,25 @@ Header _$HeaderFromJson(Map<String, dynamic> json) => Header(
         ? null
         : Schema.fromJson(json['schema'] as Map<String, dynamic>);
 
-Map<String, dynamic> _$HeaderToJson(Header instance) => <String, dynamic>{
-      'description': instance.description,
-      'required': instance.required,
-      'deprecated': instance.deprecated,
-      'allowEmptyValue': instance.allowEmptyValue,
-      'style': instance.style,
-      'explode': instance.explode,
-      'allowReserved': instance.allowReserved,
-      'schema': instance.schema,
-      'example': instance.example,
-      'examples': instance.examples,
-    };
+Map<String, dynamic> _$HeaderToJson(Header instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('description', instance.description);
+  writeNotNull('required', instance.required);
+  val['deprecated'] = instance.deprecated;
+  writeNotNull('allowEmptyValue', instance.allowEmptyValue);
+  writeNotNull('style', instance.style);
+  val['explode'] = instance.explode;
+  val['allowReserved'] = instance.allowReserved;
+  writeNotNull('schema', instance.schema?.toJson());
+  writeNotNull('example', instance.example);
+  writeNotNull(
+      'examples', instance.examples?.map((k, e) => MapEntry(k, e.toJson())));
+  return val;
+}

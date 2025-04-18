@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'request_body.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class RequestBody {
   String? description;
   Map<String, MediaType> content;

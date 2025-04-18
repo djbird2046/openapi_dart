@@ -6,7 +6,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'schema.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class Schema {
   String type;
   String? title;

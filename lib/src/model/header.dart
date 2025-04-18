@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'header.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class Header {
   String? description;
   bool? required;

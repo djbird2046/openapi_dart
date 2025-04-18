@@ -20,14 +20,23 @@ SecurityScheme _$SecuritySchemeFromJson(Map<String, dynamic> json) =>
       openIdConnectUrl: json['openIdConnectUrl'] as String?,
     );
 
-Map<String, dynamic> _$SecuritySchemeToJson(SecurityScheme instance) =>
-    <String, dynamic>{
-      'type': instance.type,
-      'description': instance.description,
-      'name': instance.name,
-      'in': instance.in_,
-      'scheme': instance.scheme,
-      'bearerFormat': instance.bearerFormat,
-      'flows': instance.flows,
-      'openIdConnectUrl': instance.openIdConnectUrl,
-    };
+Map<String, dynamic> _$SecuritySchemeToJson(SecurityScheme instance) {
+  final val = <String, dynamic>{
+    'type': instance.type,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('description', instance.description);
+  val['name'] = instance.name;
+  val['in'] = instance.in_;
+  val['scheme'] = instance.scheme;
+  writeNotNull('bearerFormat', instance.bearerFormat);
+  writeNotNull('flows', instance.flows?.toJson());
+  writeNotNull('openIdConnectUrl', instance.openIdConnectUrl);
+  return val;
+}

@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'xml.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false)
 class XML {
   String? name;
   String? namespace;

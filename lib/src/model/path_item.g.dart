@@ -42,18 +42,28 @@ PathItem _$PathItemFromJson(Map<String, dynamic> json) => PathItem(
           .toList(),
     );
 
-Map<String, dynamic> _$PathItemToJson(PathItem instance) => <String, dynamic>{
-      r'$ref': instance.$ref,
-      'summary': instance.summary,
-      'description': instance.description,
-      'get': instance.get,
-      'put': instance.put,
-      'post': instance.post,
-      'delete': instance.delete,
-      'options': instance.options,
-      'head': instance.head,
-      'patch': instance.patch,
-      'trace': instance.trace,
-      'servers': instance.servers,
-      'parameters': instance.parameters,
-    };
+Map<String, dynamic> _$PathItemToJson(PathItem instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(r'$ref', instance.$ref);
+  writeNotNull('summary', instance.summary);
+  writeNotNull('description', instance.description);
+  writeNotNull('get', instance.get?.toJson());
+  writeNotNull('put', instance.put?.toJson());
+  writeNotNull('post', instance.post?.toJson());
+  writeNotNull('delete', instance.delete?.toJson());
+  writeNotNull('options', instance.options?.toJson());
+  writeNotNull('head', instance.head?.toJson());
+  writeNotNull('patch', instance.patch?.toJson());
+  writeNotNull('trace', instance.trace?.toJson());
+  writeNotNull('servers', instance.servers?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      'parameters', instance.parameters?.map((e) => e.toJson()).toList());
+  return val;
+}

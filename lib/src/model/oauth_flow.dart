@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'oauth_flow.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false)
 class OAuthFlow {
   late String authorizationUrl;
   late String tokenUrl;

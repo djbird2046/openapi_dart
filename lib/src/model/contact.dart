@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'contact.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(includeIfNull: false)
 class Contact {
   String? name;
   String? url;

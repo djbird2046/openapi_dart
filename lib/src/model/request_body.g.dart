@@ -14,9 +14,17 @@ RequestBody _$RequestBodyFromJson(Map<String, dynamic> json) => RequestBody(
       required: json['required'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$RequestBodyToJson(RequestBody instance) =>
-    <String, dynamic>{
-      'description': instance.description,
-      'content': instance.content,
-      'required': instance.required,
-    };
+Map<String, dynamic> _$RequestBodyToJson(RequestBody instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('description', instance.description);
+  val['content'] = instance.content.map((k, e) => MapEntry(k, e.toJson()));
+  val['required'] = instance.required;
+  return val;
+}

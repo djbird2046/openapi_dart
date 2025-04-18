@@ -19,9 +19,20 @@ MediaType _$MediaTypeFromJson(Map<String, dynamic> json) => MediaType(
       ),
     );
 
-Map<String, dynamic> _$MediaTypeToJson(MediaType instance) => <String, dynamic>{
-      'schema': instance.schema,
-      'example': instance.example,
-      'examples': instance.examples,
-      'encoding': instance.encoding,
-    };
+Map<String, dynamic> _$MediaTypeToJson(MediaType instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('schema', instance.schema?.toJson());
+  writeNotNull('example', instance.example);
+  writeNotNull(
+      'examples', instance.examples?.map((k, e) => MapEntry(k, e.toJson())));
+  writeNotNull(
+      'encoding', instance.encoding?.map((k, e) => MapEntry(k, e.toJson())));
+  return val;
+}

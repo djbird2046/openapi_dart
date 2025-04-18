@@ -14,8 +14,17 @@ Discriminator _$DiscriminatorFromJson(Map<String, dynamic> json) =>
       ),
     );
 
-Map<String, dynamic> _$DiscriminatorToJson(Discriminator instance) =>
-    <String, dynamic>{
-      'propertyName': instance.propertyName,
-      'mapping': instance.mapping,
-    };
+Map<String, dynamic> _$DiscriminatorToJson(Discriminator instance) {
+  final val = <String, dynamic>{
+    'propertyName': instance.propertyName,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('mapping', instance.mapping);
+  return val;
+}

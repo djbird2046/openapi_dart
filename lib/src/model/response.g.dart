@@ -19,9 +19,21 @@ Response _$ResponseFromJson(Map<String, dynamic> json) => Response(
       ),
     );
 
-Map<String, dynamic> _$ResponseToJson(Response instance) => <String, dynamic>{
-      'description': instance.description,
-      'headers': instance.headers,
-      'content': instance.content,
-      'links': instance.links,
-    };
+Map<String, dynamic> _$ResponseToJson(Response instance) {
+  final val = <String, dynamic>{
+    'description': instance.description,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(
+      'headers', instance.headers?.map((k, e) => MapEntry(k, e.toJson())));
+  writeNotNull(
+      'content', instance.content?.map((k, e) => MapEntry(k, e.toJson())));
+  writeNotNull('links', instance.links?.map((k, e) => MapEntry(k, e.toJson())));
+  return val;
+}

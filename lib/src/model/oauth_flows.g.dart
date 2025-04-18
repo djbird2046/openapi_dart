@@ -23,10 +23,18 @@ OAuthFlows _$OAuthFlowsFromJson(Map<String, dynamic> json) => OAuthFlows(
               json['authorizationCode'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$OAuthFlowsToJson(OAuthFlows instance) =>
-    <String, dynamic>{
-      'implicit': instance.implicit,
-      'password': instance.password,
-      'clientCredentials': instance.clientCredentials,
-      'authorizationCode': instance.authorizationCode,
-    };
+Map<String, dynamic> _$OAuthFlowsToJson(OAuthFlows instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('implicit', instance.implicit?.toJson());
+  writeNotNull('password', instance.password?.toJson());
+  writeNotNull('clientCredentials', instance.clientCredentials?.toJson());
+  writeNotNull('authorizationCode', instance.authorizationCode?.toJson());
+  return val;
+}
