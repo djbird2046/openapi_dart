@@ -1,3 +1,7 @@
+## 0.1.4
+
+- fixed schema enum type string only issue
+
 ## 0.1.3
 
 - support schema ref
