@@ -1,3 +1,7 @@
+## 0.2.0
+
+- convert models to explicitToJson:true and includeIfNull: false
+
 ## 0.1.4
 
 - fixed schema enum type string only issue
